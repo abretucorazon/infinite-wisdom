@@ -12,6 +12,7 @@
 		466FCEF41AAC27FA00F21042 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 466FCEF31AAC27FA00F21042 /* Images.xcassets */; };
 		466FCEF71AAC27FA00F21042 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 466FCEF51AAC27FA00F21042 /* LaunchScreen.xib */; };
 		466FCF031AAC27FA00F21042 /* puzzleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466FCF021AAC27FA00F21042 /* puzzleTests.swift */; };
+		4676B6DE1BA8D37900408FE2 /* GameWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4676B6DD1BA8D37900408FE2 /* GameWorkflow.swift */; settings = {ASSET_TAGS = (); }; };
 		46CDE4341BA247BF0091AA0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4331BA247BF0091AA0A /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		46CDE4391BA247E20091AA0A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4351BA247E20091AA0A /* GameViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		46CDE43A1BA247E20091AA0A /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4361BA247E20091AA0A /* Puzzle.swift */; settings = {ASSET_TAGS = (); }; };
@@ -37,6 +38,7 @@
 		466FCEFC1AAC27FA00F21042 /* puzzleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = puzzleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		466FCF011AAC27FA00F21042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		466FCF021AAC27FA00F21042 /* puzzleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = puzzleTests.swift; sourceTree = "<group>"; };
+		4676B6DD1BA8D37900408FE2 /* GameWorkflow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWorkflow.swift; sourceTree = "<group>"; };
 		46CDE4331BA247BF0091AA0A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46CDE4351BA247E20091AA0A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		46CDE4361BA247E20091AA0A /* Puzzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puzzle.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				46CDE4331BA247BF0091AA0A /* AppDelegate.swift */,
 				46409E7B1BA13E930001D4E6 /* RLMPuzzle.swift */,
 				46CDE4351BA247E20091AA0A /* GameViewController.swift */,
+				4676B6DD1BA8D37900408FE2 /* GameWorkflow.swift */,
 				46CDE4361BA247E20091AA0A /* Puzzle.swift */,
 				466FCEF01AAC27FA00F21042 /* Main.storyboard */,
 				466FCEF31AAC27FA00F21042 /* Images.xcassets */,
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46CDE4391BA247E20091AA0A /* GameViewController.swift in Sources */,
+				4676B6DE1BA8D37900408FE2 /* GameWorkflow.swift in Sources */,
 				46CDE4341BA247BF0091AA0A /* AppDelegate.swift in Sources */,
 				46409E7C1BA13E930001D4E6 /* RLMPuzzle.swift in Sources */,
 				46CDE43A1BA247E20091AA0A /* Puzzle.swift in Sources */,
