@@ -7,8 +7,6 @@
 //
 
 import UIKit
-//import QuartzCore
-//import SceneKit
 import AVFoundation
 
 
@@ -28,27 +26,6 @@ class GameViewController: UICollectionViewController {
         static let kNumberOfSections = 1
     }
     
-    // Temporary database of Quotes
-    struct Database {
-        static let quotes =
-                        [   "to be or not to be",
-                            "those who cannot remember the past are condemned to repeat it. (George Santayana)",
-                            "the greatest thing you ever learn is to love and be loved in return. (Nat Kingcole)",
-                            "The Universe is made of stories, not of atoms. (Muriel Rukeyser)"
-                        ]
-        var currentItemIndex = 0
-        
-        mutating func nextQuote() ->  String {
-            let result = Database.quotes[currentItemIndex]
-            currentItemIndex = (currentItemIndex + 1) % Database.quotes.count
-            return result
-        }
-        
-        mutating func nextPuzzle() ->  Puzzle {
-            return Puzzle(withString:nextQuote())
-        }
-        
-     }
 
     // Database
     var gameDatabase = Database()
@@ -59,15 +36,19 @@ class GameViewController: UICollectionViewController {
     
     // Start a new game with a new puzzle and refreshing UI
     func startNewGame() {
-        wordPuzzle = gameDatabase.nextPuzzle()
+        wordPuzzle = Puzzle(withString:gameDatabase.nextQuote())
         collectionView!.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // *** ONE TIME DEAL ***
+        //Database.generateSeedBundle()
+        
         // Load next puzzle from database
-        wordPuzzle = gameDatabase.nextPuzzle()
+        wordPuzzle = Puzzle(withString:gameDatabase.nextQuote())
+        
         
         // Add a panGestureRecognizer to CollectionView to allow user to repostion cell items using "Drag and Drop"
         self.collectionView?.addGestureRecognizer(panGestureRecognizer)
@@ -263,11 +244,11 @@ class GameViewController: UICollectionViewController {
     
     // Display a congratulatory message in an alert box
     func displayEndOfGameMessage() {
-        var message: String = "\""
-        message.appendContentsOf(wordPuzzle.text)
-        message.appendContentsOf("\"")
+        //var message: String = "\""
+        //message.appendContentsOf(wordPuzzle.text)
+        //message.appendContentsOf("\"")
         let popupMsg = UIAlertController(title: "You did it!",
-                                         message: message,
+                                         message: wordPuzzle.text, //message,
                                          preferredStyle: .Alert)
         
         // A completion handler will tart new game when congratulatory message is removed from the screen

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46409E7C1BA13E930001D4E6 /* RLMPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46409E7B1BA13E930001D4E6 /* RLMPuzzle.swift */; settings = {ASSET_TAGS = (); }; };
+		46409E7C1BA13E930001D4E6 /* RLMQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46409E7B1BA13E930001D4E6 /* RLMQuote.swift */; settings = {ASSET_TAGS = (); }; };
 		466FCEF21AAC27FA00F21042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466FCEF01AAC27FA00F21042 /* Main.storyboard */; };
 		466FCEF41AAC27FA00F21042 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 466FCEF31AAC27FA00F21042 /* Images.xcassets */; };
 		466FCEF71AAC27FA00F21042 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 466FCEF51AAC27FA00F21042 /* LaunchScreen.xib */; };
@@ -16,6 +16,13 @@
 		46CDE4341BA247BF0091AA0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4331BA247BF0091AA0A /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		46CDE4391BA247E20091AA0A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4351BA247E20091AA0A /* GameViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		46CDE43A1BA247E20091AA0A /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4361BA247E20091AA0A /* Puzzle.swift */; settings = {ASSET_TAGS = (); }; };
+		46F609161BAB6CED009E8BB6 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F609151BAB6CED009E8BB6 /* Database.swift */; settings = {ASSET_TAGS = (); }; };
+		46F8F0581BACF1410081D33C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F8F0571BACF1410081D33C /* Realm.framework */; };
+		46F8F0591BACF1410081D33C /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46F8F0571BACF1410081D33C /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		46F8F05C1BACF14E0081D33C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F8F05B1BACF14E0081D33C /* RealmSwift.framework */; };
+		46F8F05D1BACF14E0081D33C /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46F8F05B1BACF14E0081D33C /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		46F8F0601BACF20B0081D33C /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 46F8F05E1BACF20B0081D33C /* default.realm */; settings = {ASSET_TAGS = (); }; };
+		46F8F0611BACF25C0081D33C /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 46F8F05E1BACF20B0081D33C /* default.realm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,8 +35,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		46F8F05A1BACF1410081D33C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				46F8F05D1BACF14E0081D33C /* RealmSwift.framework in Embed Frameworks */,
+				46F8F0591BACF1410081D33C /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		46409E7B1BA13E930001D4E6 /* RLMPuzzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMPuzzle.swift; sourceTree = "<group>"; };
+		46409E7B1BA13E930001D4E6 /* RLMQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMQuote.swift; sourceTree = "<group>"; };
 		466FCEE71AAC27FA00F21042 /* puzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = puzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		466FCEEB1AAC27FA00F21042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		466FCEF11AAC27FA00F21042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,8 +64,10 @@
 		46CDE4331BA247BF0091AA0A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46CDE4351BA247E20091AA0A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		46CDE4361BA247E20091AA0A /* Puzzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puzzle.swift; sourceTree = "<group>"; };
-		46CDE44A1BA361850091AA0A /* Realm */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = Realm; path = Realm.framework/Realm; sourceTree = "<group>"; };
-		46CDE44B1BA361940091AA0A /* RealmSwift */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = RealmSwift; path = RealmSwift.framework/RealmSwift; sourceTree = "<group>"; };
+		46F609151BAB6CED009E8BB6 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		46F8F0571BACF1410081D33C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		46F8F05B1BACF14E0081D33C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		46F8F05E1BACF20B0081D33C /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F8F05C1BACF14E0081D33C /* RealmSwift.framework in Frameworks */,
+				46F8F0581BACF1410081D33C /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,8 +93,8 @@
 		466FCEDE1AAC27FA00F21042 = {
 			isa = PBXGroup;
 			children = (
-				46CDE44B1BA361940091AA0A /* RealmSwift */,
-				46CDE44A1BA361850091AA0A /* Realm */,
+				46F8F05B1BACF14E0081D33C /* RealmSwift.framework */,
+				46F8F0571BACF1410081D33C /* Realm.framework */,
 				466FCEE91AAC27FA00F21042 /* puzzle */,
 				466FCEFF1AAC27FA00F21042 /* puzzleTests */,
 				466FCEE81AAC27FA00F21042 /* Products */,
@@ -88,8 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				46CDE4331BA247BF0091AA0A /* AppDelegate.swift */,
-				46409E7B1BA13E930001D4E6 /* RLMPuzzle.swift */,
+				46409E7B1BA13E930001D4E6 /* RLMQuote.swift */,
 				46CDE4351BA247E20091AA0A /* GameViewController.swift */,
+				46F609151BAB6CED009E8BB6 /* Database.swift */,
 				4676B6DD1BA8D37900408FE2 /* GameWorkflow.swift */,
 				46CDE4361BA247E20091AA0A /* Puzzle.swift */,
 				466FCEF01AAC27FA00F21042 /* Main.storyboard */,
@@ -103,6 +130,7 @@
 		466FCEEA1AAC27FA00F21042 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				46F8F05E1BACF20B0081D33C /* default.realm */,
 				466FCEEB1AAC27FA00F21042 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -135,6 +163,7 @@
 				466FCEE31AAC27FA00F21042 /* Sources */,
 				466FCEE41AAC27FA00F21042 /* Frameworks */,
 				466FCEE51AAC27FA00F21042 /* Resources */,
+				46F8F05A1BACF1410081D33C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -207,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F8F0611BACF25C0081D33C /* default.realm in Resources */,
 				466FCEF21AAC27FA00F21042 /* Main.storyboard in Resources */,
 				466FCEF71AAC27FA00F21042 /* LaunchScreen.xib in Resources */,
 				466FCEF41AAC27FA00F21042 /* Images.xcassets in Resources */,
@@ -217,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F8F0601BACF20B0081D33C /* default.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,8 +260,9 @@
 			files = (
 				46CDE4391BA247E20091AA0A /* GameViewController.swift in Sources */,
 				4676B6DE1BA8D37900408FE2 /* GameWorkflow.swift in Sources */,
+				46F609161BAB6CED009E8BB6 /* Database.swift in Sources */,
 				46CDE4341BA247BF0091AA0A /* AppDelegate.swift in Sources */,
-				46409E7C1BA13E930001D4E6 /* RLMPuzzle.swift in Sources */,
+				46409E7C1BA13E930001D4E6 /* RLMQuote.swift in Sources */,
 				46CDE43A1BA247E20091AA0A /* Puzzle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
