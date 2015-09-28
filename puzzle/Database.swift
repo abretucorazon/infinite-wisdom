@@ -61,8 +61,6 @@ class Database {
         // Query Realm for all the quotes in the database
         quotes = realm.objects(RLMQuote)
         
-        print(quotes.count)
-        
         // The next quote in database to be returned by nextQuote() is at position 0
         nextItemIndex = 0
         

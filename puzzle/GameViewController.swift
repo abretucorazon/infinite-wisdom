@@ -321,7 +321,7 @@ class GameViewController: UICollectionViewController {
                 
                 indexOfWordUttered = 0  // Index of first word in puzzle to be uttered
                 let speech = AVSpeechUtterance(string: puzzle.text)
-                speech.rate = AVSpeechUtteranceMinimumSpeechRate
+                speech.rate = (AVSpeechUtteranceMinimumSpeechRate + AVSpeechUtteranceMaximumSpeechRate) / 4.0
                 speech.volume = 0.5
                 speech.preUtteranceDelay =  0.5
                 speech.postUtteranceDelay = 1.0
