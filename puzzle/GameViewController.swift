@@ -31,23 +31,22 @@ class GameViewController: UICollectionViewController {
     var gameDatabase = Database()
     
     // Puzzle to be solved set to default value
-    var wordPuzzle = Puzzle(withString:"to be or not to be")
-    
+    var wordPuzzle = Puzzle(withString:"to be or not to be, that is the question")
+    var quote = ""
+    var author = ""
     
     // Start a new game with a new puzzle and refreshing UI
     func startNewGame() {
-        wordPuzzle = Puzzle(withString:gameDatabase.nextQuote())
+        (quote,author) = gameDatabase.nextQuote()
+        wordPuzzle = Puzzle(withString:quote)
         collectionView!.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // *** ONE TIME DEAL ***
-        //Database.generateSeedBundle()
-        
         // Load next puzzle from database
-        wordPuzzle = Puzzle(withString:gameDatabase.nextQuote())
+        startNewGame()
         
         
         // Add a panGestureRecognizer to CollectionView to allow user to repostion cell items using "Drag and Drop"
@@ -162,23 +161,31 @@ class GameViewController: UICollectionViewController {
 
     
     // User moved CellItem to new location in collectionView
-    func dropCellItemToSelectedLocation(location: CGPoint) {
+    func dropCellItemToSelectedLocation(location: CGPoint, completionBlock: ((Bool) -> Void)) {
+        
         let collectionView = self.collectionView!
-        let indexPath = collectionView.indexPathForItemAtPoint(location)
-        if indexPath != nil &&
-           indexPath! != itemOriginalIndexPath! //>>> To restore its original location when cellItem was moved a few pixels
-        {
-            // Animate moving cellItem from itemOriginalIndexPath to new position at toIndexPath in collectionView
-            collectionView.moveItemAtIndexPath(itemOriginalIndexPath!, toIndexPath:indexPath!)
+        
+        collectionView.performBatchUpdates( {
+
+                let indexPath = collectionView.indexPathForItemAtPoint(location)
+                if indexPath != nil && indexPath! != self.itemOriginalIndexPath!   {
             
-            // Move the word in puzzle to relfect the new position of the displaced cellItem above in collectionView
-            wordPuzzle.moveItemAtIndexPath(itemOriginalIndexPath!, toIndexPath:indexPath!)
+                // Animate moving cellItem from itemOriginalIndexPath to new position at toIndexPath in collectionView
+                collectionView.moveItemAtIndexPath(self.itemOriginalIndexPath!, toIndexPath:indexPath!)
             
-        }
-        else {
-            restoreCellItemOriginalLocation()
-        }
-        cellToMove = nil
+                // Move the word in puzzle to relfect the new position of the displaced cellItem above in collectionView
+                self.wordPuzzle.moveItemAtIndexPath(self.itemOriginalIndexPath!, toIndexPath:indexPath!)
+            
+            }
+            else {  //>>> To restore its original location when cellItem was moved a few pixels
+
+                    self.restoreCellItemOriginalLocation()
+            }
+            self.cellToMove = nil
+        },
+            
+        completion: completionBlock)  // performBatchUpdates()
+        
     }
     
     // Gesture Recogniser move cellItem to new locatino
@@ -223,16 +230,17 @@ class GameViewController: UICollectionViewController {
             
         case .Ended:    // Position cellItem to its new position and rearrange items in 
                         // collectionView accordingly
-                        dropCellItemToSelectedLocation(location)
-                        
-                        // Check wether the puzzle is solved
-                        if (wordPuzzle.isSolved()) {
+                        dropCellItemToSelectedLocation(location,
+                            completionBlock: {_ in 
+                                // Check wether the puzzle is solved
+                                if (self.wordPuzzle.isSolved()) {
+                                    // *** NEED TO DISABLE PAN GESTURE RECOGNIZER DURING SPEECH ****
+                                    //let voice = PuzzleToSpeech(aPuzzle: wordPuzzle, collectionViewController:self)
+                                    //voice.speak()
                             
-                            // *** NEED TO DISABLE PAN GESTURE RECOGNIZER DURING SPEECH ****
-                            
-                            let voice = PuzzleToSpeech(aPuzzle: wordPuzzle, collectionViewController:self)
-                            voice.speak()
-                        }
+                                    self.displayEndOfGameMessage()
+                            }
+                        })
             
         default:        // .cancelled or .failed
                         restoreCellItemOriginalLocation()
@@ -247,12 +255,15 @@ class GameViewController: UICollectionViewController {
         //var message: String = "\""
         //message.appendContentsOf(wordPuzzle.text)
         //message.appendContentsOf("\"")
-        let popupMsg = UIAlertController(title: "You did it!",
-                                         message: wordPuzzle.text, //message,
-                                         preferredStyle: .Alert)
+        
+        sleep(1)  // sleep 1 second before pop up message to avoid startling player
+        
+        let popupMsg = UIAlertController(title: "Feeling wiser?",
+                                         message: "\"" + quote + "\"" + " - " + author, //message,
+                                         preferredStyle:.ActionSheet) //.Alert)
         
         // A completion handler will tart new game when congratulatory message is removed from the screen
-        let alertAction = UIAlertAction(title: "OK",
+        let alertAction = UIAlertAction(title: "Next",
                                         style: UIAlertActionStyle.Default,
                                         handler: {  _ in popupMsg.dismissViewControllerAnimated(true,completion:nil)
                                                     self.unHighlightAllItems()
@@ -266,8 +277,9 @@ class GameViewController: UICollectionViewController {
                               completion: nil)
     }
     
-    
-    //*** Implement AVSpeechSynthesizerDelegate protocol to coordinate the speaking out loud of a puzzle
+
+/*****
+    // *** Implement AVSpeechSynthesizerDelegate protocol to coordinate the speaking out loud of a puzzle
     class PuzzleToSpeech: NSObject, AVSpeechSynthesizerDelegate {
     
         let puzzle: Puzzle
@@ -280,7 +292,7 @@ class GameViewController: UICollectionViewController {
             viewController = aViewController
         }
     
-/*
+
         // Call-back when synthesizer begins speaking a sentence
         func speechSynthesizer(synthesizer: AVSpeechSynthesizer,
                                didStartSpeechUtterance utterance: AVSpeechUtterance) {
@@ -289,7 +301,7 @@ class GameViewController: UICollectionViewController {
             //viewController.highlightWord(indexOfWordInUtterance)
     
         }
-*/
+
 
         // Call-back when synthesizer finishes speaking a sentence
         func speechSynthesizer(synthesizer: AVSpeechSynthesizer,
@@ -332,7 +344,10 @@ class GameViewController: UICollectionViewController {
         }
     
     }
-    
+ 
+***/
+
+
     override func shouldAutorotate() -> Bool {
         return true
     }

@@ -7,23 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46409E7C1BA13E930001D4E6 /* RLMQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46409E7B1BA13E930001D4E6 /* RLMQuote.swift */; settings = {ASSET_TAGS = (); }; };
+		46176A6B1C9DC39000B609B7 /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = 46176A6A1C9DC39000B609B7 /* podfile */; };
+		4632A0481CA0B82600EA84B2 /* Pods.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4632A0471CA0B82600EA84B2 /* Pods.release.xcconfig */; };
+		4632A04A1CA0B83900EA84B2 /* Pods.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4632A0491CA0B83900EA84B2 /* Pods.debug.xcconfig */; };
+		46409E7C1BA13E930001D4E6 /* RLMQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46409E7B1BA13E930001D4E6 /* RLMQuote.swift */; };
+		464EF61A1C04F93700D91F69 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464EF6191C04F93700D91F69 /* Realm.framework */; };
+		464EF61C1C04F95200D91F69 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464EF61B1C04F95200D91F69 /* RealmSwift.framework */; };
 		466FCEF21AAC27FA00F21042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466FCEF01AAC27FA00F21042 /* Main.storyboard */; };
 		466FCEF41AAC27FA00F21042 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 466FCEF31AAC27FA00F21042 /* Images.xcassets */; };
 		466FCEF71AAC27FA00F21042 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 466FCEF51AAC27FA00F21042 /* LaunchScreen.xib */; };
-		466FCF031AAC27FA00F21042 /* puzzleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466FCF021AAC27FA00F21042 /* puzzleTests.swift */; };
-		4676B6DE1BA8D37900408FE2 /* GameWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4676B6DD1BA8D37900408FE2 /* GameWorkflow.swift */; settings = {ASSET_TAGS = (); }; };
-		46CC79941BB9ED88004F26E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46CC79931BB9ED88004F26E4 /* AVFoundation.framework */; };
-		46CDE4341BA247BF0091AA0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4331BA247BF0091AA0A /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		46CDE4391BA247E20091AA0A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4351BA247E20091AA0A /* GameViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		46CDE43A1BA247E20091AA0A /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4361BA247E20091AA0A /* Puzzle.swift */; settings = {ASSET_TAGS = (); }; };
-		46F609161BAB6CED009E8BB6 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F609151BAB6CED009E8BB6 /* Database.swift */; settings = {ASSET_TAGS = (); }; };
-		46F8F0581BACF1410081D33C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F8F0571BACF1410081D33C /* Realm.framework */; };
-		46F8F0591BACF1410081D33C /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46F8F0571BACF1410081D33C /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		46F8F05C1BACF14E0081D33C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F8F05B1BACF14E0081D33C /* RealmSwift.framework */; };
-		46F8F05D1BACF14E0081D33C /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46F8F05B1BACF14E0081D33C /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		46F8F0601BACF20B0081D33C /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 46F8F05E1BACF20B0081D33C /* default.realm */; settings = {ASSET_TAGS = (); }; };
-		46F8F0611BACF25C0081D33C /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 46F8F05E1BACF20B0081D33C /* default.realm */; };
+		4676B6DE1BA8D37900408FE2 /* GameWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4676B6DD1BA8D37900408FE2 /* GameWorkflow.swift */; };
+		46CDE4341BA247BF0091AA0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4331BA247BF0091AA0A /* AppDelegate.swift */; };
+		46CDE4391BA247E20091AA0A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4351BA247E20091AA0A /* GameViewController.swift */; };
+		46CDE43A1BA247E20091AA0A /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CDE4361BA247E20091AA0A /* Puzzle.swift */; };
+		46F609161BAB6CED009E8BB6 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F609151BAB6CED009E8BB6 /* Database.swift */; };
+		62268576578475B3D06495D1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BF2AB0D48471A1021FE220 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +41,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				46F8F05D1BACF14E0081D33C /* RealmSwift.framework in Embed Frameworks */,
-				46F8F0591BACF1410081D33C /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,24 +48,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		46176A6A1C9DC39000B609B7 /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; };
+		4632A0471CA0B82600EA84B2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4632A0491CA0B83900EA84B2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		46409E7B1BA13E930001D4E6 /* RLMQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMQuote.swift; sourceTree = "<group>"; };
-		466FCEE71AAC27FA00F21042 /* puzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = puzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		464EF6191C04F93700D91F69 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		464EF61B1C04F95200D91F69 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		466FCEE71AAC27FA00F21042 /* Infinite Wisdom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Infinite Wisdom.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466FCEEB1AAC27FA00F21042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		466FCEF11AAC27FA00F21042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		466FCEF31AAC27FA00F21042 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		466FCEF61AAC27FA00F21042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		466FCEFC1AAC27FA00F21042 /* puzzleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = puzzleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		466FCF011AAC27FA00F21042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		466FCF021AAC27FA00F21042 /* puzzleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = puzzleTests.swift; sourceTree = "<group>"; };
 		4676B6DD1BA8D37900408FE2 /* GameWorkflow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWorkflow.swift; sourceTree = "<group>"; };
-		46CC79931BB9ED88004F26E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		46CDE4331BA247BF0091AA0A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46CDE4351BA247E20091AA0A /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		46CDE4361BA247E20091AA0A /* Puzzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puzzle.swift; sourceTree = "<group>"; };
 		46F609151BAB6CED009E8BB6 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		46F8F0571BACF1410081D33C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		46F8F05B1BACF14E0081D33C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
-		46F8F05E1BACF20B0081D33C /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
+		93BF2AB0D48471A1021FE220 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +73,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46CC79941BB9ED88004F26E4 /* AVFoundation.framework in Frameworks */,
-				46F8F05C1BACF14E0081D33C /* RealmSwift.framework in Frameworks */,
-				46F8F0581BACF1410081D33C /* Realm.framework in Frameworks */,
+				464EF61A1C04F93700D91F69 /* Realm.framework in Frameworks */,
+				464EF61C1C04F95200D91F69 /* RealmSwift.framework in Frameworks */,
+				62268576578475B3D06495D1 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,22 +89,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F02227D47AE849106961ADD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4632A0491CA0B83900EA84B2 /* Pods.debug.xcconfig */,
+				4632A0471CA0B82600EA84B2 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		466FCEDE1AAC27FA00F21042 = {
 			isa = PBXGroup;
 			children = (
-				46CC79931BB9ED88004F26E4 /* AVFoundation.framework */,
-				46F8F05B1BACF14E0081D33C /* RealmSwift.framework */,
-				46F8F0571BACF1410081D33C /* Realm.framework */,
+				46176A6A1C9DC39000B609B7 /* podfile */,
+				464EF61B1C04F95200D91F69 /* RealmSwift.framework */,
+				464EF6191C04F93700D91F69 /* Realm.framework */,
 				466FCEE91AAC27FA00F21042 /* puzzle */,
-				466FCEFF1AAC27FA00F21042 /* puzzleTests */,
 				466FCEE81AAC27FA00F21042 /* Products */,
+				0F02227D47AE849106961ADD /* Pods */,
+				B5F64AD3284FB9F7C7FC4219 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		466FCEE81AAC27FA00F21042 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				466FCEE71AAC27FA00F21042 /* puzzle.app */,
+				466FCEE71AAC27FA00F21042 /* Infinite Wisdom.app */,
 				466FCEFC1AAC27FA00F21042 /* puzzleTests.xctest */,
 			);
 			name = Products;
@@ -134,27 +140,17 @@
 		466FCEEA1AAC27FA00F21042 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				46F8F05E1BACF20B0081D33C /* default.realm */,
 				466FCEEB1AAC27FA00F21042 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		466FCEFF1AAC27FA00F21042 /* puzzleTests */ = {
+		B5F64AD3284FB9F7C7FC4219 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				466FCF021AAC27FA00F21042 /* puzzleTests.swift */,
-				466FCF001AAC27FA00F21042 /* Supporting Files */,
+				93BF2AB0D48471A1021FE220 /* Pods.framework */,
 			);
-			path = puzzleTests;
-			sourceTree = "<group>";
-		};
-		466FCF001AAC27FA00F21042 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				466FCF011AAC27FA00F21042 /* Info.plist */,
-			);
-			name = "Supporting Files";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,10 +160,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 466FCF061AAC27FA00F21042 /* Build configuration list for PBXNativeTarget "puzzle" */;
 			buildPhases = (
+				6D7A3F8DD199782A0083084D /* Check Pods Manifest.lock */,
 				466FCEE31AAC27FA00F21042 /* Sources */,
 				466FCEE41AAC27FA00F21042 /* Frameworks */,
 				466FCEE51AAC27FA00F21042 /* Resources */,
 				46F8F05A1BACF1410081D33C /* Embed Frameworks */,
+				D849DF10788BD364B5A8F437 /* Embed Pods Frameworks */,
+				C6EC9FA0F7C79D43CC037ADB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -175,7 +174,7 @@
 			);
 			name = puzzle;
 			productName = puzzle;
-			productReference = 466FCEE71AAC27FA00F21042 /* puzzle.app */;
+			productReference = 466FCEE71AAC27FA00F21042 /* Infinite Wisdom.app */;
 			productType = "com.apple.product-type.application";
 		};
 		466FCEFB1AAC27FA00F21042 /* puzzleTests */ = {
@@ -240,9 +239,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46F8F0611BACF25C0081D33C /* default.realm in Resources */,
 				466FCEF21AAC27FA00F21042 /* Main.storyboard in Resources */,
+				4632A0481CA0B82600EA84B2 /* Pods.release.xcconfig in Resources */,
 				466FCEF71AAC27FA00F21042 /* LaunchScreen.xib in Resources */,
+				4632A04A1CA0B83900EA84B2 /* Pods.debug.xcconfig in Resources */,
+				46176A6B1C9DC39000B609B7 /* podfile in Resources */,
 				466FCEF41AAC27FA00F21042 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,11 +252,58 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46F8F0601BACF20B0081D33C /* default.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6D7A3F8DD199782A0083084D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C6EC9FA0F7C79D43CC037ADB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D849DF10788BD364B5A8F437 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		466FCEE31AAC27FA00F21042 /* Sources */ = {
@@ -275,7 +323,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				466FCF031AAC27FA00F21042 /* puzzleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +436,7 @@
 		};
 		466FCF071AAC27FA00F21042 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4632A0491CA0B83900EA84B2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -400,15 +448,15 @@
 				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = puzzle/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/puzzle",
 					"$(PROJECT_DIR)/RealmSwift.framework",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "MarvinInc.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = MarvinInc.Infinite.wisdom;
+				PRODUCT_NAME = "Infinite Wisdom";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -416,6 +464,7 @@
 		};
 		466FCF081AAC27FA00F21042 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4632A0471CA0B82600EA84B2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -427,15 +476,15 @@
 				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = puzzle/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/puzzle",
 					"$(PROJECT_DIR)/RealmSwift.framework",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "MarvinInc.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = MarvinInc.Infinite.wisdom;
+				PRODUCT_NAME = "Infinit Wisdom";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
