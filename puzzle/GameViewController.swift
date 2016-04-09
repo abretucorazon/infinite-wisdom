@@ -25,34 +25,9 @@ class GameViewController: UICollectionViewController {
         static let kCellItemAnimationDuration = 0.5
         static let kNumberOfSections = 1
     }
-    
 
-    // Database
-    var gameDatabase = Database()
-    
-    // Puzzle to be solved set to default value
-    var wordPuzzle = Puzzle(withString:"to be or not to be, that is the question")
-    var quote = ""
-    var author = ""
-    
-    // Start a new game with a new puzzle and refreshing UI
-    func startNewGame() {
-        (quote,author) = gameDatabase.nextQuote()
-        wordPuzzle = Puzzle(withString:quote)
-        collectionView!.reloadData()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Load next puzzle from database
-        startNewGame()
-        
-        
-        // Add a panGestureRecognizer to CollectionView to allow user to repostion cell items using "Drag and Drop"
-        self.collectionView?.addGestureRecognizer(panGestureRecognizer)
-        
-    }
+    // The general controller the drive the entire game
+    let gameWorkFlow = (UIApplication.sharedApplication().delegate as! AppDelegate).gameWorkFlow
     
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -60,86 +35,26 @@ class GameViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return wordPuzzle.wordCount
+        return gameWorkFlow.wordPuzzle.wordCount
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(constants.kCellIdString,forIndexPath:indexPath)
-                as! GameViewCell
-        cell.wordLabel.text = wordPuzzle[indexPath.indexAtPosition(indexPath.length-1)]
+            as! GameViewCell
+        cell.wordLabel.text = gameWorkFlow.wordPuzzle[indexPath.indexAtPosition(indexPath.length-1)]
         return cell
     }
-
-/*
-    override func collectionView(collectionView: UICollectionView,didSelectItemAtIndexPath indexPath: NSIndexPath) {
    
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! GameViewCell
-        cell.wordLabel.backgroundColor = UIColor.purpleColor()
-    }
-    
-    
-    override func collectionView(collectionView: UICollectionView,didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! GameViewCell
-        cell.wordLabel.backgroundColor = UIColor.blackColor()
-
-    }
-*/
-    
-    // Hightlight a cell item in collection view on the screen
-    func hightlightItemAtIndexPath(indexPath: NSIndexPath) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        // Scroll collection view to show the cell item to be hightlighted
-        collectionView!.scrollToItemAtIndexPath(indexPath,
-                                                atScrollPosition: UICollectionViewScrollPosition.Bottom,
-                                                animated: true)
-        let cell = collectionView!.cellForItemAtIndexPath(indexPath) as! GameViewCell
-        cell.wordLabel.backgroundColor = UIColor.purpleColor()
+        // Add a panGestureRecognizer to CollectionView to allow user to repostion cell items using "Drag and Drop"
+        self.collectionView?.addGestureRecognizer(panGestureRecognizer)
     }
     
-    // Remove hightlight for a cell itme in collection view on the screen
-    func unHighlightItemAtIndexPath(indexPath: NSIndexPath) {
-        let cell = collectionView!.cellForItemAtIndexPath(indexPath) as! GameViewCell
-        cell.wordLabel.backgroundColor = UIColor.blackColor()
-    }
     
-    // Unhightlight all cell items in collection view
-    func unHighlightAllItems() {
-        
-        for index in 0..<wordPuzzle.wordCount {
-            let indexPath = NSIndexPath(indexes:UnsafePointer([0,index]),length:2)
-            unHighlightItemAtIndexPath(indexPath)
-        }
-    }
     
-/*
-    func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    
-        //let cell = self.collectionView(collectionView,cellForItemAtIndexPath:indexPath) as! GameViewCell
-        //cell.wordLabel.text = wordPuzzle[indexPath]
-        //let bound = CGRect(origin: CGPoint(x:0,y:0),size: CGSize(width:1000.0,height:1000.0))
-        //let textRect = cell.wordLabel.textRectForBounds(bound, limitedToNumberOfLines:0)
-                            
-        let wordLabel = UILabel()
-        wordLabel.text = wordPuzzle[indexPath]
-        let bound = CGRect(origin: CGPoint(x:0,y:0),size: CGSize(width:1000.0,height:1000.0))
-        let textRect = wordLabel.textRectForBounds(bound, limitedToNumberOfLines:0)
-                            
-        let viewFlowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        var cellSize = viewFlowLayout.itemSize
-        cellSize.width = max(cellSize.width,textRect.size.width)
-
-                            
-        print("sizeForItemAtIndexPath")
-        print(cellSize)
-    
-        return cellSize
-     
-    }
-*/
-  
     
     @IBOutlet weak var panGestureRecognizer: UIPanGestureRecognizer!
     
@@ -174,7 +89,8 @@ class GameViewController: UICollectionViewController {
                 collectionView.moveItemAtIndexPath(self.itemOriginalIndexPath!, toIndexPath:indexPath!)
             
                 // Move the word in puzzle to relfect the new position of the displaced cellItem above in collectionView
-                self.wordPuzzle.moveItemAtIndexPath(self.itemOriginalIndexPath!, toIndexPath:indexPath!)
+                let puzzle = self.gameWorkFlow.wordPuzzle
+                puzzle.moveItemAtIndexPath(self.itemOriginalIndexPath!, toIndexPath:indexPath!)
             
             }
             else {  //>>> To restore its original location when cellItem was moved a few pixels
@@ -217,7 +133,7 @@ class GameViewController: UICollectionViewController {
     @IBAction func panGestureAction(sender: UIPanGestureRecognizer) {
 
         let state = sender.state
-        let location = sender.locationInView(collectionView) //sender.translationInView(collectionView)
+        let location = sender.locationInView(collectionView) 
         
         switch state {
             
@@ -232,8 +148,8 @@ class GameViewController: UICollectionViewController {
                         // collectionView accordingly
                         dropCellItemToSelectedLocation(location,
                             completionBlock: {_ in 
-                                // Check wether the puzzle is solved
-                                if (self.wordPuzzle.isSolved()) {
+                                // Check wether the puzzle is solved                                
+                                if (self.gameWorkFlow.isPuzzleSolved()) {
                                     // *** NEED TO DISABLE PAN GESTURE RECOGNIZER DURING SPEECH ****
                                     //let voice = PuzzleToSpeech(aPuzzle: wordPuzzle, collectionViewController:self)
                                     //voice.speak()
@@ -258,16 +174,17 @@ class GameViewController: UICollectionViewController {
         
         sleep(1)  // sleep 1 second before pop up message to avoid startling player
         
+        let message = gameWorkFlow.endGameMessage()
         let popupMsg = UIAlertController(title: "Feeling wiser?",
-                                         message: "\"" + quote + "\"" + " - " + author, //message,
+                                         message: message,
                                          preferredStyle:.ActionSheet) //.Alert)
         
         // A completion handler will tart new game when congratulatory message is removed from the screen
         let alertAction = UIAlertAction(title: "Next",
                                         style: UIAlertActionStyle.Default,
                                         handler: {  _ in popupMsg.dismissViewControllerAnimated(true,completion:nil)
-                                                    self.unHighlightAllItems()
-                                                    self.startNewGame()
+                                                    self.gameWorkFlow.nextGame()
+                                                    self.collectionView!.reloadData()
                                                   })
         
         popupMsg.addAction(alertAction)
@@ -278,74 +195,7 @@ class GameViewController: UICollectionViewController {
     }
     
 
-/*****
-    // *** Implement AVSpeechSynthesizerDelegate protocol to coordinate the speaking out loud of a puzzle
-    class PuzzleToSpeech: NSObject, AVSpeechSynthesizerDelegate {
-    
-        let puzzle: Puzzle
-        let viewController : GameViewController
-        let synthesizer = AVSpeechSynthesizer()
-        var indexOfWordUttered = 0 // Index of the word in puzzle currently being uttered by synthesizer
-        
-        init(aPuzzle: Puzzle, collectionViewController aViewController: GameViewController) {
-            puzzle = aPuzzle
-            viewController = aViewController
-        }
-    
 
-        // Call-back when synthesizer begins speaking a sentence
-        func speechSynthesizer(synthesizer: AVSpeechSynthesizer,
-                               didStartSpeechUtterance utterance: AVSpeechUtterance) {
-    
-            // Tell viewController to highlight word being spoken
-            //viewController.highlightWord(indexOfWordInUtterance)
-    
-        }
-
-
-        // Call-back when synthesizer finishes speaking a sentence
-        func speechSynthesizer(synthesizer: AVSpeechSynthesizer,
-            didFinishSpeechUtterance utterance: AVSpeechUtterance) {
-                
-                // *** NEED TO PAUSE FOR A MOMENT BETWEEN THE END OF SPEECH AND THE NEXT UI UPDATE
-                sleep(1)  // sleep in seconds
-                
-                // Display a congratulatory message
-                viewController.displayEndOfGameMessage()
-                
-        }
-
-        // Notification at the start of each word to be uttered
-        func speechSynthesizer(synthesizer: AVSpeechSynthesizer,
-            willSpeakRangeOfSpeechString characterRange: NSRange,
-            utterance: AVSpeechUtterance) {
-                
-                let indexPath = NSIndexPath(indexes:UnsafePointer([0,indexOfWordUttered]),length:2)
-                viewController.hightlightItemAtIndexPath(indexPath)
-                indexOfWordUttered++
-        }
-        
-    
-        // Using speech synthesis to speak outloud a puzzle
-        func speak() {
-    
-            if (puzzle.wordCount > 0) {
-                
-                indexOfWordUttered = 0  // Index of first word in puzzle to be uttered
-                let speech = AVSpeechUtterance(string: puzzle.text)
-                speech.rate = (AVSpeechUtteranceMinimumSpeechRate + AVSpeechUtteranceMaximumSpeechRate) / 4.0
-                speech.volume = 0.5
-                speech.preUtteranceDelay =  0.5
-                speech.postUtteranceDelay = 1.0
-                synthesizer.delegate = self  // Self is acting as a delegate to receive notifications from synthesizer
-                synthesizer.speakUtterance(speech)
-            }
-    
-        }
-    
-    }
- 
-***/
 
 
     override func shouldAutorotate() -> Bool {

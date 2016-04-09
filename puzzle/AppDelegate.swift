@@ -40,7 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    // The general manager of the workflow of the whole game
+    var gameWorkFlow = GameWorkflow()
 
 }
 
