@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import GameplayKit
 
 
 class GameViewCell: UICollectionViewCell {
@@ -24,11 +25,24 @@ class GameViewController: UICollectionViewController {
         static let kCellIdString = "oneWordCell"
         static let kCellItemAnimationDuration = 0.5
         static let kNumberOfSections = 1
+        static let kAnimationTimerInterval = 4.0
+        static let kAnimationTimerTolerance = 1.0
+        static let kRatioOfMaskedCells = 0.3 as Float
+        
     }
 
     // The general controller the drive the entire game
     let gameWorkFlow = (UIApplication.sharedApplication().delegate as! AppDelegate).gameWorkFlow
     
+    var animationTimer : NSTimer?
+    
+    let randomNumber = GKLinearCongruentialRandomSource()
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+    }
+
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return constants.kNumberOfSections
@@ -45,16 +59,59 @@ class GameViewController: UICollectionViewController {
         cell.wordLabel.text = gameWorkFlow.wordPuzzle[indexPath.indexAtPosition(indexPath.length-1)]
         return cell
     }
+
+    // Animation handler fired at regular interval by a timer
+    func animatePuzzle(timer: NSTimer) {
+        print("animatePuzzle")
    
+       // Mask some collection view cells according to a predefined ratio
+       // let cellArray = collectionView!.visibleCells() as! [GameViewCell]
+       // 1..<3.map {_ in return randomNumber.nextIntWithUpperBound(cellArray.count)
+        
+        let cellArray = collectionView!.visibleCells() as! [GameViewCell]
+        
+        // Turn all cells previously masked back on
+        for cell in cellArray {
+            if cell.wordLabel.alpha < 1.0 {
+                cell.wordLabel.alpha = 1.0
+            }
+        }
+        
+        // Compute the number of cells to mask according to a predefined ratio
+        let numberOfMaskedCells = Int((Float(cellArray.count)  * constants.kRatioOfMaskedCells))
+        for _ in 1...numberOfMaskedCells {
+            
+            // Pick a cell randomly to be masked
+            let randomCellIndex = randomNumber.nextIntWithUpperBound(cellArray.count)
+            cellArray[randomCellIndex].wordLabel.alpha = 0.0
+         
+        }
+    }
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Add a panGestureRecognizer to CollectionView to allow user to repostion cell items using "Drag and Drop"
         self.collectionView?.addGestureRecognizer(panGestureRecognizer)
+        
+        // Register animation timer & handler
+        animationTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(constants.kAnimationTimerInterval),
+                                                                target: self, selector: "animatePuzzle:",
+                                                                userInfo: nil, repeats: true)
+        // Set precision tolerance for timer
+        animationTimer?.tolerance = constants.kAnimationTimerTolerance
+      
     }
     
     
-    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        // Stop animation timer when view is not showed on the screen
+        animationTimer?.invalidate()
+    }
     
     @IBOutlet weak var panGestureRecognizer: UIPanGestureRecognizer!
     
