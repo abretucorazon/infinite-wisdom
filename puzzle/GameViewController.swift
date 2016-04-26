@@ -22,11 +22,17 @@ class GameViewCell: UICollectionViewCell {
 class GameViewController: UICollectionViewController {
 
     struct constants {
+        
+        // Collection view
         static let kCellIdString = "oneWordCell"
         static let kCellItemAnimationDuration = 0.5
         static let kNumberOfSections = 1
+        
+        // Game animation - Timer
         static let kAnimationTimerInterval = 4.0
         static let kAnimationTimerTolerance = 1.0
+        
+        // Game animation - Cell masking 
         static let kRatioOfMaskedCells = 0.3 as Float
         
     }

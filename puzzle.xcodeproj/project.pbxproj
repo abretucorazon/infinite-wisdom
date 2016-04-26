@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		46176A6B1C9DC39000B609B7 /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = 46176A6A1C9DC39000B609B7 /* podfile */; };
-		4632A0481CA0B82600EA84B2 /* Pods.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4632A0471CA0B82600EA84B2 /* Pods.release.xcconfig */; };
-		4632A04A1CA0B83900EA84B2 /* Pods.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4632A0491CA0B83900EA84B2 /* Pods.debug.xcconfig */; };
 		46409E7C1BA13E930001D4E6 /* RLMQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46409E7B1BA13E930001D4E6 /* RLMQuote.swift */; };
 		464EF61A1C04F93700D91F69 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464EF6191C04F93700D91F69 /* Realm.framework */; };
 		464EF61C1C04F95200D91F69 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464EF61B1C04F95200D91F69 /* RealmSwift.framework */; };
@@ -102,12 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				46176A6A1C9DC39000B609B7 /* podfile */,
-				464EF61B1C04F95200D91F69 /* RealmSwift.framework */,
-				464EF6191C04F93700D91F69 /* Realm.framework */,
 				466FCEE91AAC27FA00F21042 /* puzzle */,
 				466FCEE81AAC27FA00F21042 /* Products */,
-				0F02227D47AE849106961ADD /* Pods */,
 				B5F64AD3284FB9F7C7FC4219 /* Frameworks */,
+				0F02227D47AE849106961ADD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				93BF2AB0D48471A1021FE220 /* Pods.framework */,
+				464EF6191C04F93700D91F69 /* Realm.framework */,
+				464EF61B1C04F95200D91F69 /* RealmSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -202,7 +200,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Marvin Nguyen";
 				TargetAttributes = {
 					466FCEE61AAC27FA00F21042 = {
@@ -240,9 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				466FCEF21AAC27FA00F21042 /* Main.storyboard in Resources */,
-				4632A0481CA0B82600EA84B2 /* Pods.release.xcconfig in Resources */,
 				466FCEF71AAC27FA00F21042 /* LaunchScreen.xib in Resources */,
-				4632A04A1CA0B83900EA84B2 /* Pods.debug.xcconfig in Resources */,
 				46176A6B1C9DC39000B609B7 /* podfile in Resources */,
 				466FCEF41AAC27FA00F21042 /* Images.xcassets in Resources */,
 			);
